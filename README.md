@@ -199,13 +199,3 @@ underspecifies an interface, a frontend engineer using a Gradio API that moved,
 or a test engineer that fixes the tests instead of the code.
 
 ---
-
-## Provenance
-
-Built from the week 3 (CrewAI) capstone of Ed Donner's *Master AI Agentic
-Engineering* course, restructured into a standalone application: a `src` layout
-with a proper package, centralised settings for the sandbox and container, a CLI
-with an environment doctor and a requirement catalogue, a pre-flight Docker check
-so a missing daemon fails fast instead of silently, `cwd` anchoring so output
-files land in the sandbox regardless of where you invoke from, and a test suite
-over the YAML configuration. See `ARCHITECTURE.md`.
