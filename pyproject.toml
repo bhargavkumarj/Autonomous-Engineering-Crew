@@ -1,0 +1,44 @@
+[project]
+name = "engineering-crew"
+version = "1.0.0"
+description = "Four role-based agents that design, build and test software in a Docker sandbox"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "crewai[tools]==1.14.4",
+    "python-dotenv>=1.2.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pyyaml>=6.0",
+    "ruff>=0.6.0",
+]
+
+[project.scripts]
+engineering-crew = "engineering_crew.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/engineering_crew"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 110
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+# Defaults plus import sorting. Deliberately not the "select everything" set:
+# this codebase catches broad exceptions and uses naive local timestamps on
+# purpose, and a linter that flags those trains you to ignore it.
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["engineering_crew"]

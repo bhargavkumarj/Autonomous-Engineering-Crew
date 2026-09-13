@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+sandbox/
+.pytest_cache/
+.ruff_cache/
+
+# Personal notes, not published
+INTERVIEW_PREP.md
